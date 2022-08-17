@@ -25,12 +25,11 @@ export default {
   },
   methods: {
     deleteResource(id) {
-      this.$emit('delete-resource', id);
-    },
-    emits: {
-      deleteResource: Function,
+      console.log('list-item', id);
+      this.deleteItem(id);
     },
   },
+  inject: ['deleteItem'],
 };
 </script>
 

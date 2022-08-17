@@ -11,13 +11,6 @@ export default {
     TheHeader,
     TheResources,
   },
-  methods: {
-    deleteResource(id) {
-      this.storedResources = this.storedResources.filter(
-        (item) => item.id !== id
-      );
-    },
-  },
 };
 </script>
 

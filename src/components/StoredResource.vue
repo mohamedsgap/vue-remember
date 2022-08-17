@@ -4,7 +4,6 @@
       v-for="resource in storedResources"
       :key="resource.id"
       :resource="resource"
-      @delete-resource="deleteResource"
     ></list-item>
   </ul>
 </template>

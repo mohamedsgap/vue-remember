@@ -12,7 +12,9 @@
       Add New Item</base-button
     >
   </base-card>
-  <component :is="selectedTab"></component>
+  <keep-alive>
+    <component :is="selectedTab" @add-item="addItem"></component>
+  </keep-alive>
 </template>
 
 <script>
@@ -44,11 +46,20 @@ export default {
   provide() {
     return {
       storedResources: this.resourcesData,
+      deleteItem: this.deleteItem,
     };
   },
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;
+    },
+    addItem(item) {
+      this.resourcesData.push(item);
+      this.selectedTab = 'stored-resource';
+    },
+    deleteItem(id) {
+      const index = this.resourcesData.findIndex((item) => item.id === id);
+      this.resourcesData.splice(index, 1);
     },
   },
   computed: {
